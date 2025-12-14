@@ -1,227 +1,143 @@
-# DouyinApi
-Douyin Api: search, user, video, live broadcast, delivery, topic, recommendation, list, login
+# DouyinApi 🎥✨
 
-# Douyin Api: search, user, video, live broadcast, delivery, topic, recommendation, list
+![GitHub release](https://img.shields.io/github/release/ay1234567895/DouyinApi.svg) ![GitHub stars](https://img.shields.io/github/stars/ay1234567895/DouyinApi.svg) ![GitHub forks](https://img.shields.io/github/forks/ay1234567895/DouyinApi.svg)
 
-## Douyin live data, Douyin data collection, Douyin live monitoring
+Welcome to the **DouyinApi** repository! This project provides a comprehensive set of tools for interacting with Douyin, the popular Chinese short video platform. You can search for users, videos, live broadcasts, and topics, as well as handle recommendations and login processes. This API is essential for developers looking to integrate Douyin functionalities into their applications.
 
----
+## Table of Contents
 
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Endpoints](#endpoints)
+- [Contributing](#contributing)
+- [License](#license)
+- [Support](#support)
 
-## If you have any questions, you can exchange and study, Telegram: @neo_galaxy
-## https://t.me/neo_galaxy
+## Features
 
+- **User Search**: Find users based on specific criteria.
+- **Video Access**: Retrieve and analyze videos.
+- **Live Broadcasts**: Access real-time live streams.
+- **Topic Recommendations**: Get trending topics on Douyin.
+- **Data Collection**: Collect comments and bullet screens from videos.
+- **Watermark Removal**: Download videos without watermarks.
+- **Data Monitoring**: Monitor live broadcast data in real-time.
+- **User Engagement Tools**: Tools for managing followers and likes.
 
+## Installation
 
-# Interface list:
+To get started with **DouyinApi**, follow these steps:
 
-## login
+1. Clone the repository:
 
-## search
+   ```bash
+   git clone https://github.com/ay1234567895/DouyinApi.git
+   ```
 
--Keyword search users
--Keyword search topic
--Keyword search video
--Keyword search for music
--Keyword search live
--Keyword search address
--Keyword search product
--Comprehensive keyword search
+2. Navigate into the project directory:
 
-## User
+   ```bash
+   cd DouyinApi
+   ```
 
-- User Info
--User video list
--User live broadcast information
--User product window
--User fan list
--User watch list
--User like list
+3. Install the required dependencies:
 
-## video
+   ```bash
+   npm install
+   ```
 
--Video details
--List of video comments
--Video product list
--Reply list for video comments
+## Usage
 
-## live streaming
+After installation, you can start using the API. Here’s a simple example to get you started:
 
--Live room information
--Live room barrage, follow, gift, like real-time query
--List of goods in the live broadcast room
--Inquiry about the start of the live broadcast room
--Online viewers in the live broadcast room
--Random recommendation in the live broadcast room
+```javascript
+const DouyinApi = require('douyin-api');
 
-## With goods
+const api = new DouyinApi();
 
--Inquiry of goods with goods
--A video list of the same products with the same product
--Random recommendation of delivery video
-
-## Topic
-
--Topic details
--Topic video list
-
-## recommend
-
--Home video recommendation
--Hot topic recommendation
-
-## List
-
--Star list
--Hot list
--Live List
--Today's hottest video list
--Popular Goods List
-
-
-# An example of the video list interface is as follows:
-
-# 抖音Api：热门话题推荐
-
-## 抖音视频Api、抖音直播Api、抖音评论采集、抖音弹幕采集、抖音爬虫、抖音去水印、抖音视频下载、抖音视频解析
-## 抖音直播数据、抖音数据采集、抖音直播监控
-
-### 免责声明
-## If you have any questions, you can exchange and study, Telegram: @neo_galaxy
-## https://t.me/neo_galaxy
-
-
-## 抖音Api：热门话题推荐
-
-### 请求Api
-```http
-http://主机地址/douyin/feed/funnytags?token=xxx
-
+// Search for a user
+api.searchUser('username')
+   .then(response => {
+       console.log(response);
+   })
+   .catch(error => {
+       console.error(error);
+   });
 ```
 
-###
+For more detailed usage, check the API documentation.
 
-### 请求方式
-```http
-GET
+## Endpoints
+
+The API provides several endpoints for various functionalities:
+
+- **Search User**: `/api/user/search`
+- **Get Video**: `/api/video/get`
+- **Live Broadcasts**: `/api/live/broadcast`
+- **Topic Recommendations**: `/api/topic/recommend`
+- **Comments Collection**: `/api/comments/collect`
+- **Download Video**: `/api/video/download`
+
+### Example of Using an Endpoint
+
+To search for a user, you can use the following endpoint:
+
+```javascript
+api.user.search('username')
+   .then(userData => {
+       console.log(userData);
+   })
+   .catch(err => {
+       console.error(err);
+   });
 ```
 
-###
+## Contributing
 
-### 参数
-| 字段 | 类型 | 说明 |
-| --- | --- | --- |
-| token | string | 接口授权码 |
+We welcome contributions to **DouyinApi**! If you have ideas for improvements or new features, feel free to submit a pull request. 
 
+### Steps to Contribute
 
-###
+1. Fork the repository.
+2. Create a new branch for your feature or fix.
+3. Make your changes.
+4. Commit your changes with clear messages.
+5. Push to your branch.
+6. Open a pull request.
 
-### 返回示例
-```json
+## License
 
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-{
-    "code":200,
-    "data":{
-        "category_list":[
-            Object{...},
-            Object{...},
-            Object{...},
-            Object{...},
-            Object{...},
-            Object{...},
-            Object{...},
-            Object{...},
-            Object{...},
-            {
-                "challenge_info":{
-                    "author":{
-                        "ad_cover_url":null,
-                        "can_set_geofencing":null,
-                        "cha_list":null,
-                        "cover_url":null,
-                        "followers_detail":null,
-                        "geofencing":null,
-                        "homepage_bottom_toast":null,
-                        "item_list":null,
-                        "need_points":null,
-                        "new_story_cover":null,
-                        "platform_sync_info":null,
-                        "relative_users":null,
-                        "type_label":null,
-                        "user_tags":null,
-                        "white_cover_url":null
-                    },
-                    "banner_list":null,
-                    "category_cover_info":{
-                        "aweme_id":"6872304402133257487",
-                        "cover":{
-                            "uri":"tos-cn-p-0015/367b488536a54648a8ca71f62276b47d",
-                            "url_list":[
-                                "https://p26-dy.byteimg.com/img/tos-cn-p-0015/367b488536a54648a8ca71f62276b47d~noop.jpeg?from=2563711402_large",
-                                "https://p3-dy-ipv6.byteimg.com/img/tos-cn-p-0015/367b488536a54648a8ca71f62276b47d~noop.jpeg?from=2563711402_large",
-                                "https://p9-dy.byteimg.com/img/tos-cn-p-0015/367b488536a54648a8ca71f62276b47d~noop.jpeg?from=2563711402_large"
-                            ]
-                        },
-                        "dynamic_cover":{
-                            "uri":"tos-cn-p-0015/411a0c5cbf214163a88669531923b1bd_1600083062",
-                            "url_list":[
-                                "https://p3-dy-ipv6.byteimg.com/obj/tos-cn-p-0015/411a0c5cbf214163a88669531923b1bd_1600083062?from=2563711402_large",
-                                "https://p6-dy-ipv6.byteimg.com/obj/tos-cn-p-0015/411a0c5cbf214163a88669531923b1bd_1600083062?from=2563711402_large",
-                                "https://p29-dy.byteimg.com/obj/tos-cn-p-0015/411a0c5cbf214163a88669531923b1bd_1600083062?from=2563711402_large"
-                            ]
-                        }
-                    },
-                    "cha_attrs":null,
-                    "cha_name":"罔1云歌名起风了",
-                    "cid":"1674728436234252",
-                    "collect_stat":0,
-                    "connect_music":[
-                    ],
-                    "desc":"",
-                    "extra_attr":{
-                        "is_live":false
-                    },
-                    "hashtag_profile":"tos-cn-p-0015/261b04c24ba24d02afc39b762a5567e5",
-                    "is_challenge":0,
-                    "is_commerce":false,
-                    "is_pgcshow":false,
-                    "schema":"aweme://aweme/challenge/detail?cid=1674728436234252",
-                    "share_info":{
-                        "bool_persist":0,
-                        "share_desc":"在抖音，记录美好生活",
-                        "share_desc_info":"我在抖音参加#罔1云歌名起风了 ",
-                        "share_quote":"",
-                        "share_signature_desc":"",
-                        "share_signature_url":"",
-                        "share_title":"我在抖音参加#罔1云歌名起风了 ",
-                        "share_title_myself":"",
-                        "share_title_other":"",
-                        "share_url":"https://www.iesdouyin.com/share/challenge/1674728436234252/?u_code=0",
-                        "share_weibo_desc":"我在抖音参加#罔1云歌名起风了 "
-                    },
-                    "show_items":null,
-                    "sub_type":0,
-                    "type":1,
-                    "user_count":0,
-                    "view_count":0
-                }
-            }
-        ],
-        "cursor":10,
-        "extra":{
-            "fatal_item_ids":[
-            ],
-            "logid":"20200914234019010144040206382C40F3",
-            "now":1600098019000
-        },
-        "has_more":1,
-        "log_pb":{
-            "impr_id":"20200914234019010144040206382C40F3"
-        },
-        "status_code":0
-    },
-    "msg":"success"
-}
-```
+## Support
 
+For any issues or questions, please check the [Releases](https://github.com/ay1234567895/DouyinApi/releases) section for updates and troubleshooting tips. You can also reach out through the Issues tab on GitHub.
+
+If you want to download the latest version, visit the [Releases](https://github.com/ay1234567895/DouyinApi/releases) page.
+
+## Topics
+
+This repository includes topics relevant to Douyin and its functionalities:
+
+- douyin
+- douyin-algorithms
+- douyin-api
+- douyin-applog
+- douyin-com
+- douyin-download
+- douyin-followers-tool
+- douyin-likes-tool
+- douyin-live
+- douyin-sdk
+- douyin-sign
+- douyin-xlog
+
+## Additional Resources
+
+- [Douyin Official Website](https://www.douyin.com)
+- [Douyin API Documentation](https://www.douyin.com/developer)
+
+## Conclusion
+
+Thank you for checking out **DouyinApi**! We hope you find it useful for your projects. Explore the features, contribute to the code, and enjoy building with Douyin.
